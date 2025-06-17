@@ -1,0 +1,11 @@
+Bài 2: Phát triển tiếp dự án Todo App
+- Triển khai chức năng lọc theo: 
+Tất cả tasks, tasks chưa hoàn thành, tasks đã hoàn thành (UI cho sẵn buttons rồi).
+- Triển khai chức năng tìm kiếm: 
+Khi gõ vào ô search thì lọc ra các tasks có title hoặc description chứa từ khóa,
+ lọc ngay trên danh sách chính. 
+ Nếu không có tasks khớp với từ khóa, hiển thị message không tìm thấy. 
+ Khi xóa từ khóa khỏi ô search, hiển thị lại danh sách gốc. 
+ Khi tìm, tự động chuyển về chế độ lọc "Tất cả tasks" 
+ (VD đang lọc ở "các tasks đã xong", thì khi bắt đầu tìm tự chuyển về tất cả).
+- Check trùng tiêu đề (title) và đưa ra cảnh báo khi thêm task và sửa task.
