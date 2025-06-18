@@ -47,15 +47,21 @@ searchInput.oninput = function (event) {
     renderTasks();
 }
 
+function escapeHTML (html) {
+    const div = document.createElement("div");
+    div.textContent = html;
+    return div.innerHTML;
+}
+
 let editIndex = null;
 
 function openFormModal () {
-    addTaskModal.className = "modal-overlay show"
+    addTaskModal.classList.add("show");
     setTimeout(() => autoFocus.focus(), 100);
 };
 
 function closeForm () {
-    addTaskModal.className = "modal-overlay";
+    addTaskModal.classList.remove("show");
 
     
     const formTitle = formAdd.querySelector(".modal-title");
@@ -211,7 +217,7 @@ function renderTasks () {
         return `
         <div class="task-card ${task.color} ${task.isCompleted ? "completed" : ""}">
                 <div class="task-header">
-                    <h3 class="task-title">${task.title}</h3>
+                    <h3 class="task-title">${escapeHTML(task.title)}</h3>
                     <button class="task-menu">
                         <i class="fa-solid fa-ellipsis fa-icon"></i>
                         <div class="dropdown-menu">
@@ -230,8 +236,8 @@ function renderTasks () {
                         </div>
                     </button>
                 </div>
-                <p class="task-description">${task.description}</p>
-                <div class="task-time">${task.startTime} - ${task.endTime}</div>
+                <p class="task-description">${escapeHTML(task.description)}</p>
+                <div class="task-time">${escapeHTML(task.startTime)} - ${escapeHTML(task.endTime)}</div>
         </div>
         `
     }).join("")
